@@ -1,33 +1,21 @@
 
 #include <psp2/kernel/processmgr.h>
 #include <psp2/ctrl.h>
-#include <psp2/display.h>
-#include <psp2/apputil.h>
-#include <stdio.h>
-#include <string.h>
+#include <psp2/debugScreen.h>
 
 int main(void) {
+    sceDebugScreenInit();
     sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG);
 
-    printf("\n");
-    printf("================================\n");
-    printf("          BROWSERS\n");
-    printf("================================\n");
-    printf("      PS Vita Web Browser\n");
-    printf("            Version 0.2\n");
-    printf("--------------------------------\n");
-    printf("\n");
-    printf("  Welcome to Browsers!\n");
-    printf("\n");
-    printf("  Browser project started.\n");
-    printf("\n");
-    printf("  Next goals:\n");
-    printf("  - Address bar\n");
-    printf("  - Open websites\n");
-    printf("  - Browse the Internet\n");
-    printf("\n");
-    printf("================================\n");
-    printf("  Press X to exit\n");
+    sceDebugScreenPrintf("================================\n");
+    sceDebugScreenPrintf("          BROWSERS\n");
+    sceDebugScreenPrintf("================================\n");
+    sceDebugScreenPrintf("      PS Vita Web Browser\n");
+    sceDebugScreenPrintf("          Version 0.3\n");
+    sceDebugScreenPrintf("--------------------------------\n\n");
+    sceDebugScreenPrintf("  Welcome to Browsers!\n\n");
+    sceDebugScreenPrintf("  Screen test successful!\n\n");
+    sceDebugScreenPrintf("  Press X to exit\n");
 
     SceCtrlData pad;
 
