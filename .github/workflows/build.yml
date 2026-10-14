@@ -1,0 +1,31 @@
+name: Build Browsers for PS Vita
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get source code
+        uses: actions/checkout@v4
+
+      - name: Build with VitaSDK
+        run: |
+          docker run --rm \
+            -v "$PWD:/workspace" \
+            -w /workspace \
+            vitasdk/vitasdk:2026.08 \
+            sh -c 'cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="$VITASDK/share/vita.toolchain.cmake" && cmake --build build --parallel 2'
+
+      - name: Upload VPK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Browsers-PSVita
+          path: build/Browsers.vpk
+          if-no-files-found: error
+          
