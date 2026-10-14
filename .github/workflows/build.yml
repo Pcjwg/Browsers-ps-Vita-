@@ -22,10 +22,14 @@ jobs:
             vitasdk/vitasdk:2026.08 \
             sh -c 'cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE="$VITASDK/share/vita.toolchain.cmake" && cmake --build build --parallel 2'
 
+      
       - name: Upload VPK
         uses: actions/upload-artifact@v4
         with:
           name: Browsers-PSVita
-          path: build/Browsers.vpk
-          if-no-files-found: error
+          path: |
+            build/Browsers.vpk
+            build/Browsers
+            build/eboot.bin
+          if-no-files-found: warn
           
