@@ -13,7 +13,9 @@ set(VITA_APP_NAME "Browsers")
 set(VITA_TITLEID "BROWSR001")
 set(VITA_VERSION "01.00")
 
-add_executable(Browsers main.c)
+add_executable(Browsers
+    main.c
+)
 
 target_link_libraries(Browsers
     vita2d
@@ -23,6 +25,7 @@ target_link_libraries(Browsers
     SceSysmodule_stub
     ScePgf_stub
     ScePvf_stub
+    SceSharedFb_stub
     m
 )
 
