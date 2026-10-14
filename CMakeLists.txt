@@ -15,7 +15,7 @@ set(VITA_VERSION "01.00")
 
 add_executable(Browsers
     main.c
-)
+
 
 target_link_libraries(Browsers
     vita2d
