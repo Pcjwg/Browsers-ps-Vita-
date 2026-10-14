@@ -25,6 +25,7 @@ target_link_libraries(Browsers
     SceSysmodule_stub
     ScePgf_stub
     ScePvf_stub
+    m
 )
 
 vita_create_self(eboot.bin Browsers)
