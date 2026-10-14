@@ -22,7 +22,6 @@ target_link_libraries(Browsers
     SceDebugScreen_stub
 )
 
-
 vita_create_self(eboot.bin Browsers)
 
 vita_create_vpk(Browsers.vpk
